@@ -45,10 +45,42 @@ animation:bg 10s ease infinite;
 }
 
 .hero h1{
+
 font-size:4rem;
+
 margin-bottom:20px;
+
+background:linear-gradient(
+90deg,
+red,
+orange,
+yellow,
+green,
+cyan,
+blue,
+violet
+);
+
+background-size:400%;
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:rainbow 8s linear infinite;
+
+}
+@keyframes rainbow{
+
+0%{
+background-position:0%;
 }
 
+100%{
+background-position:400%;
+}
+
+}
 .hero p{
 font-size:1.5rem;
 max-width:800px;
@@ -86,9 +118,19 @@ box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 .photo-card img{
+
 width:100%;
+
 border-radius:20px;
+
+transition:0.8s;
+
 }
+.photo-card:hover img{
+
+transform:scale(1.05);
+
+}  
 
 .photo-card h2{
 margin-top:20px;
@@ -139,8 +181,6 @@ font-size:1.1rem;
 }
 
 }
-
-</style>
 .hearts::before,
 .hearts::after{
 
@@ -183,6 +223,8 @@ opacity:0;
 }
 
 }
+</style>
+
 </head>
 
 <body>
@@ -322,6 +364,55 @@ opacity:0;
 Made with ❤️ for the World's Best Father
 
 </div>
+<script>
 
+const cards =
+document.querySelectorAll('.photo-card');
+
+const observer =
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity='1';
+
+entry.target.style.transform='translateY(0)';
+
+}
+
+});
+
+});
+
+cards.forEach(card=>{
+
+card.style.opacity='0';
+
+card.style.transform='translateY(80px)';
+
+card.style.transition='1s';
+
+observer.observe(card);
+
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+
+confetti({
+
+particleCount:250,
+
+spread:180,
+
+origin:{y:0.6}
+
+});
+
+</script>
 </body>
 </html>
