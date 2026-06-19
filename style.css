@@ -127,21 +127,61 @@ font-size:18px;
 
 @media(max-width:768px){
 
+@media(max-width:768px){
+
+body{
+overflow-x:hidden;
+}
+
+section{
+padding:20px 10px;
+}
+
 .hero h1{
-font-size:2.5rem;
+font-size:2rem;
+line-height:1.3;
 }
 
-.final h1{
-font-size:2.5rem;
-}
-
-.hero p,
-.final p{
-font-size:1.1rem;
+.hero p{
+font-size:1rem;
+line-height:1.8;
+padding:0 10px;
 }
 
 .photo-card{
-width:95%;
+width:100%;
+margin:20px auto;
+padding:15px;
+border-radius:20px;
+}
+
+.photo-card img{
+width:100%;
+height:auto;
+display:block;
+}
+
+.photo-card h2{
+font-size:1.8rem;
+}
+
+.photo-card p{
+font-size:1rem;
+line-height:1.8;
+}
+
+.final h1{
+font-size:2rem;
+}
+
+.final p{
+font-size:1rem;
+line-height:1.8;
+}
+
+button{
+width:90%;
+max-width:350px;
 }
 
 }
